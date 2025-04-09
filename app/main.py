@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from . import models
 from .database import engine
 from .users import users_router
-#from .auth import auth_router
+from .auth import auth_router
 
 
 @asynccontextmanager
@@ -18,3 +18,4 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.include_router(users_router.router)
+app.include_router(auth_router.router)
